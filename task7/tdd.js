@@ -1,5 +1,22 @@
-TestMyCode.run("testing hello world function", function(assert){
-    var result = helloWorld();
-    // is the result as we expected?
-    assert.equals("hello world!", result);
-});
+//var result = helloWorld();
+//var expectedResult = "hello world";
+
+var assert = {
+	equals: function(expectedResult, result){
+					var rg = new RedOrGreen();
+					if(result === expectedResult){
+						rg.makeGreen();
+					} else if(result !== expectedResult){
+						rg.makeRed();
+					}
+				}
+};
+
+var TestMyCode = {
+	run: function(testName, funcToBeExc){
+		this.testName = testName;
+		funcToBeExc(assert);
+	}
+};
+
+
